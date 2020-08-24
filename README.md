@@ -8,6 +8,14 @@ To read more about Cotter, get started with our 📚 integration guides and exam
 - [Documentation](https://docs.cotter.app/sdk-reference/python-for-cli)
 - [Github](https://github.com/cotterapp/python-sdk)
 
+# Installation
+
+```
+pip install cotter
+```
+
+Find the latest versions here https://pypi.org/project/cotter/
+
 # Usage
 
 Get your `API_KEY_ID` from [Cotter's Dashboard](https://dev.cotter.app).

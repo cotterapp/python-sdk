@@ -39,3 +39,13 @@ response = login_with_phone_link(api_key, port)
 # Use OTP
 response = login_with_phone_otp(api_key, port)
 ```
+
+# Troubleshooting
+### Allowed Origin Error
+If you get an error like this:
+```json
+{'msg': 'The redirect URL http://localhost:1234 or the parent origin :// is not in the list of allowed URLs. Please contact the site owner.', 'type': ''}
+```
+You may have set up a list of Allowed URLs in the dashboard. Make sure you add these 2 urls:
+- `http://localhost:<PORT>` based on the port you used above
+- `://` (this is a bug, join our [Slack channel](https://join.slack.com/t/askcotter/shared_invite/zt-dxzf311g-5Mp3~odZNB2DwYaxIJ1dJA) to be updated)

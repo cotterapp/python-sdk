@@ -84,7 +84,6 @@ def get_access_token(api_key, code, challenge_id, code_verifier, redirect_url):
         "challenge_id": int(challenge_id),
         "redirect_url": redirect_url
     }
-    print(data)
     response = requests.post(url, json=data, headers=headers)
 
     if response.status_code != 200:

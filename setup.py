@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cotter",
-    version="0.0.1",
+    version="0.0.3",
     author="Cotter",
     author_email="putri@cotter.app",
     description="Cotter Login SDK for python scripts",

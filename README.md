@@ -56,6 +56,33 @@ response = login_with_phone_link(api_key, port)
 response = login_with_phone_otp(api_key, port)
 ```
 
+# Storing the tokens 
+
+### Store the tokens to a file:
+```python
+from cotter import tokenhandler
+tokenhandler.store_token_to_file(response["oauth_token"], "cottertoken.json")
+```
+### Get the tokens to a file (automatically refresh if needed):
+```python
+from cotter import tokenhandler
+oauth_token = tokenhandler.get_token_from_file("cottertoken.json", api_key)
+```
+
+# Refreshing tokens (if not using the functions above)
+```python
+# This will only refresh if needed
+from cotter import tokenhandler
+oauth_token = tokenhandler.refresh_token(oauth_token, api_key)
+```
+
+# Validating tokens
+```python
+from cotter import validate
+access_token_decoded = validate.validate_access_token(response["oauth_token"]["access_token"], api_key)
+id_token_decoded = validate.validate_id_token(response["oauth_token"]["id_token"], api_key)
+```
+
 # Troubleshooting
 
 ### Allowed Origin Error

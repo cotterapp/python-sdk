@@ -1,5 +1,6 @@
 import click
 import cotter
+from pprint import pprint
 __author__ = "Putri Karunia"
 
 
@@ -17,7 +18,7 @@ def login():
     api_key = "API_KEY_ID"
     port = 8080
     response = cotter.login_with_email_link(api_key, port)
-    print(response)
+    pprint(response)
 
 
 if __name__ == "__main__":

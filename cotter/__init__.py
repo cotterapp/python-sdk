@@ -55,7 +55,7 @@ class ClientRedirectHandler(BaseHTTPRequestHandler):
         if the flow has completed. Note that we can't detect
         if an error occurred.
         """
-        f = open('cotter_login_success.html', 'rb')
+        f = open(os.path.join(sys.path[0], 'cotter_login_success.html'), 'rb')
         s.send_response(200)
         s.send_header("Content-type", "text/html")
         s.end_headers()

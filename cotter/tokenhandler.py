@@ -2,6 +2,7 @@ import json
 import requests
 from cotter import validate
 from cotter import errors
+from cotter import constants
 
 
 def store_token_to_file(oauth_token, filename):
@@ -25,14 +26,14 @@ def refresh_token(oauth_token, api_key):
     # Check if token expired
     try:
         access_token_resp = validate.validate_access_token(
-            oauth_token["access_token"])
+            oauth_token["access_token"], api_key)
         return oauth_token
     except:
         # if token invalid, try refreshing it
         if len(oauth_token["refresh_token"]) <= 0:
             raise errors.RefreshTokenNotExistError
         # Refresh tokens using refresh_token
-        url = 'https://www.cotter.app/api/v0/token/' + api_key
+        url = constants.CotterBackendURL + '/token/' + api_key
         headers = {'Content-Type': 'application/json', 'API_KEY_ID': api_key}
         data = {
             "grant_type": "refresh_token",

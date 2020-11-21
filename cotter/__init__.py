@@ -76,7 +76,7 @@ def get_random_string(length):
 
 
 def get_access_token(api_key, code, challenge_id, code_verifier, redirect_url):
-    url = 'https://www.cotter.app/api/v0/verify/get_identity?oauth_token=true'
+    url = constants.CotterBackendURL + '/verify/get_identity?oauth_token=true'
     headers = {'Content-Type': 'application/json', 'API_KEY_ID': api_key}
     data = {
         "code_verifier": code_verifier.decode("utf-8"),
@@ -103,7 +103,7 @@ def login(api_key, port, identity_type, auth_method):
 
     # Prompt user to login at the web browser
     redirect_url = 'http://localhost:' + str(port)
-    url = "https://js.cotter.app/app"
+    url = constants.CotterJSURL + "/app"
     params = {
         'api_key': api_key,
         'redirect_url': redirect_url,

@@ -1,13 +1,12 @@
 import requests
 import os
 from jose import jwt
-
-CotterJWKSURL = "https://www.cotter.app/api/v0/token/jwks"
+from cotter import constants
 
 
 def validate_access_token(access_token, api_key):
     # Getting jwt key
-    r = requests.get(url=CotterJWKSURL)
+    r = requests.get(url=constants.CotterJWKSURL)
     data = r.json()
     public_key = data["keys"][0]
 
@@ -22,7 +21,7 @@ def validate_access_token(access_token, api_key):
 
 def validate_id_token(id_token, api_key):
     # Getting jwt key
-    r = requests.get(url=CotterJWKSURL)
+    r = requests.get(url=constants.CotterJWKSURL)
     data = r.json()
     public_key = data["keys"][0]
 

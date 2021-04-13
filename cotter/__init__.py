@@ -10,6 +10,7 @@ import sys
 import random
 import string
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from . import constants
 
 try:
     import urlparse
